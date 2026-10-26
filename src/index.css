@@ -1,0 +1,31 @@
+:root { color-scheme: dark; }
+html, body, #root { height: 100%; margin: 0; }
+body { background: #0A0A0A; color: #E8EAED; font-family: Montserrat, system-ui, sans-serif; overflow: hidden; }
+.pi-page { position: absolute; inset: 0; display: flex; flex-direction: column; }
+.pi-head { height: 88px; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 0 max(24px, 5vw); flex: none; }
+.pi-logo { width: min(150px, 30vw); flex: none; }
+.pi-nav { display: flex; gap: clamp(14px, 2.4vw, 38px); overflow-x: auto; }
+.pi-nav a { color: #9AA0A8; text-decoration: none; font-size: .78rem; font-weight: 500; letter-spacing: .14em; white-space: nowrap; transition: color .25s; }
+.pi-nav a:hover, .pi-nav a.on { color: #fff; }
+.pi-btn { display: inline-block; color: #fff; text-decoration: none; border: 1px solid rgba(255,255,255,.18); border-radius: 99px; padding: .6em 1.5em; font-size: .82rem; letter-spacing: .06em; transition: background .25s, color .25s; flex: none; }
+.pi-btn:hover { background: #E8EAED; color: #0A0A0A; }
+.pi-main { flex: 1; display: flex; align-items: center; padding: 0 max(24px, 6vw); gap: 4vw; }
+.pi-copy { flex: 1.25; min-width: 0; }
+.pi-art { flex: 1; min-width: 0; align-self: stretch; } /* the 3D portrait is drawn behind this area */
+.pi-hi { margin: 0 0 1rem; color: #9AA0A8; font-weight: 300; font-size: 1rem; }
+.pi-name { margin: 0; display: inline-block; padding-right: .1em; font-weight: 800; font-size: clamp(2.2rem, 5.4vw, 5.2rem); line-height: 1; letter-spacing: .015em;
+  background: linear-gradient(100deg, #5d626a 0%, #f6f8fa 28%, #8e949c 48%, #fff 60%, #6b7078 80%, #cfd3d8 100%);
+  background-size: 260% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: pi-sh 7s linear infinite; }
+.pi-role { margin: 1.1rem 0 2.2rem; font-size: clamp(1rem, 1.7vw, 1.4rem); font-weight: 300; letter-spacing: .04em; }
+.pi-replay { position: absolute; right: 5vw; bottom: 18px; background: none; border: 0; color: #9AA0A8; font: inherit; font-size: .74rem; letter-spacing: .08em; cursor: pointer; }
+@keyframes pi-sh { to { background-position: -260% 0; } }
+a:focus-visible, button:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+@media (max-width: 900px) {
+  .pi-head { flex-wrap: wrap; row-gap: 14px; height: auto; padding-top: 18px; }
+  .pi-nav { order: 3; width: 100%; gap: 22px; padding-bottom: 4px; }
+  .pi-main { flex-direction: column; justify-content: flex-end; padding-bottom: 6vh; gap: 2vh; }
+  .pi-copy { width: 100%; }
+  .pi-art { width: 100%; height: 38vh; order: -1; flex: none; }
+  .pi-name { font-size: clamp(2.2rem, 12.5vw, 4rem); }
+}
+@media (prefers-reduced-motion: reduce) { .pi-name { animation: none; } }
